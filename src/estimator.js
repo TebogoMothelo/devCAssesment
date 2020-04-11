@@ -19,10 +19,9 @@ const covid19ImpactEstimator = (data) => {
         data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10),
       severeCasesByRequestedTime:
         data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15,
-      hospitalBedsByRequestedTime: Math.floor(
+      hospitalBedsByRequestedTime:
         emptyBeds
-          - data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15
-      )
+        - data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15
     },
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
@@ -30,10 +29,9 @@ const covid19ImpactEstimator = (data) => {
         data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10),
       severeCasesByRequestedTime:
         data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15,
-      hospitalBedsByRequestedTime: Math.floor(
+      hospitalBedsByRequestedTime:
         emptyBeds
-          - data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15
-      )
+        - data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15
     }
   };
 };
