@@ -7,8 +7,6 @@ const impacts = (data) => {
     duration = data.timeToElapse * 7;
   } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
-  } else {
-    duration = data.timeToElapse * 365;
   }
   const factor = Math.floor(duration / 3);
   const infectionsByRequestedTime = Math.floor(currentlyInfected * 2 ** factor);
@@ -60,8 +58,6 @@ const severeImpacts = (data) => {
     duration = data.timeToElapse * 7;
   } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
-  } else {
-    duration = data.timeToElapse * 365;
   }
 
   const factor = Math.floor(duration / 3);
