@@ -18,7 +18,7 @@ const covid19ImpactEstimator = (data) => {
       infectionsByRequestedTime:
         data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10),
       severeCasesByRequestedTime: data.reportedCases * 10 * 0.15,
-      hospitalBedsByRequestedTime: parseInt(
+      hospitalBedsByRequestedTime: Math.floor(
         emptyBeds - data.reportedCases * 10 * 0.15
       )
     },
@@ -27,7 +27,7 @@ const covid19ImpactEstimator = (data) => {
       infectionsByRequestedTime:
         data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10),
       severeCasesByRequestedTime: data.reportedCases * 50 * 0.15,
-      hospitalBedsByRequestedTime: parseInt(
+      hospitalBedsByRequestedTime: Math.floor(
         emptyBeds - data.reportedCases * 50 * 0.15
       )
     }
