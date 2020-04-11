@@ -42,6 +42,10 @@ const impacts = (data) => {
 
      //casesforventilators
      const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
+     
+    //dollarsinflight
+
+    const dollarsInFlight = Math.floor((infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)/duration);
 
      const impact = {
             currentlyInfected: currentlyInfected,
@@ -49,7 +53,8 @@ const impacts = (data) => {
             severeCasesByRequestedTime: severeCasesByRequestedTime,
             hospitalBedsByRequestedTime: hospitalBedsByRequestedTime,
             casesForICUByRequestedTime: casesForICUByRequestedTime,
-            casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime
+            casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime,
+            dollarsInFlight:dollarsInFlight
      }
     return impact;
 }
@@ -84,16 +89,21 @@ const severeImpacts = (data) =>  {
 
      //casesforICU
      casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
-        //casesforventilators
-        const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
-    
+    //casesforventilators
+    const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
+
+    //dollarsinflight
+
+    const dollarsInFlight = Math.floor((infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD)/duration);
+
     const severeImpact = {
             currentlyInfected: currentlyInfected,
             infectionsByRequestedTime: infectionsByRequestedTime,
             severeCasesByRequestedTime: severeCasesByRequestedTime,
             hospitalBedsByRequestedTime: hospitalBedsByRequestedTime,
             casesForICUByRequestedTime: casesForICUByRequestedTime,
-            casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime
+            casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime,
+            dollarsInFlight:dollarsInFlight
         }
      return severeImpact;   
 }
