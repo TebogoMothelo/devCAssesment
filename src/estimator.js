@@ -11,9 +11,7 @@ const impacts = (data) => {
     duration = data.timeToElapse * 365;
   }
   const factor = Math.floor(duration / 3);
-  const infectionsByRequestedTime = Math.floor(
-    currentlyInfected * (2 ** factor)
-  );
+  const infectionsByRequestedTime = Math.floor(currentlyInfected * 2 ** factor);
 
   const percentage = 15 / 100;
   const severeCasesByRequestedTime = Math.floor(
@@ -26,17 +24,19 @@ const impacts = (data) => {
     emptyBeds - severeCasesByRequestedTime
   );
 
-  const casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
+  const casesForICUByRequestedTime = Math.floor(
+    0.5 * infectionsByRequestedTime
+  );
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     0.2 * infectionsByRequestedTime
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime 
-    * data.region.avgDailyIncomePopulation 
-    * data.region.avgDailyIncomeInUSD) 
-    / duration
+    (infectionsByRequestedTime *
+      data.region.avgDailyIncomePopulation *
+      data.region.avgDailyIncomeInUSD) /
+      duration
   );
   const impact = {
     currentlyInfected,
@@ -65,9 +65,7 @@ const severeImpacts = (data) => {
   }
 
   const factor = Math.floor(duration / 3);
-  const infectionsByRequestedTime = Math.floor(
-    currentlyInfected * (2 ** factor)
-  );
+  const infectionsByRequestedTime = Math.floor(currentlyInfected * 2 ** factor);
 
   const percentage = 15 / 100;
   const severeCasesByRequestedTime = Math.floor(
@@ -80,17 +78,19 @@ const severeImpacts = (data) => {
     emptyBeds - severeCasesByRequestedTime
   );
 
-  const casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
+  const casesForICUByRequestedTime = Math.floor(
+    0.5 * infectionsByRequestedTime
+  );
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     0.2 * infectionsByRequestedTime
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime 
-    * data.region.avgDailyIncomePopulation
-    * data.region.avgDailyIncomeInUSD) 
-      / duration
+    (infectionsByRequestedTime *
+      data.region.avgDailyIncomePopulation *
+      data.region.avgDailyIncomeInUSD) /
+      duration
   );
 
   const severeImpact = {
