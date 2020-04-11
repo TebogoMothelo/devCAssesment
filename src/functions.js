@@ -107,44 +107,59 @@ const severeImpacts = (data) =>  {
         }
      return severeImpact;   
 }
-console.log(impacts({  
-    region:{
-    name: "Africa",
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73     
-    },   
-    periodType: "days",
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874 } ))
+// console.log(impacts({  
+//     region:{
+//     name: "Africa",
+//     avgAge: 19.7,
+//     avgDailyIncomeInUSD: 4,
+//     avgDailyIncomePopulation: 0.73     
+//     },   
+//     periodType: "days",
+//     timeToElapse: 38,
+//     reportedCases: 2747,
+//     population: 92931687,
+//     totalHospitalBeds: 678874 } ))
 
-console.log(severeImpacts({  
-    region:{
-    name: "Africa",
-    avgAge: 19.7,
-    avgDailyIncomeInUSD: 4,
-    avgDailyIncomePopulation: 0.73     
-    },   
-    periodType: "days",
-    timeToElapse: 38,
-    reportedCases: 2747,
-    population: 92931687,
-    totalHospitalBeds: 678874 }))
+// console.log(severeImpacts({  
+//     region:{
+//     name: "Africa",
+//     avgAge: 19.7,
+//     avgDailyIncomeInUSD: 4,
+//     avgDailyIncomePopulation: 0.73     
+//     },   
+//     periodType: "days",
+//     timeToElapse: 38,
+//     reportedCases: 2747,
+//     population: 92931687,
+//     totalHospitalBeds: 678874 }))
 
-        // const covid19ImpactEstimator = () => {
-        //    const severeImpact= severeImpacts(data);
-        //    const impact = impacts(data);
-        //    const estimates = {
-        //        data,
-        //        estimate:{
-        //        severeImpact :{
-        //             currentlyInfected: severeImpact.currentlyInfected
-        //        }
-        //     }
-        //    }
+        const covid19ImpactEstimator = () => {
+           const severeImpact= severeImpacts(input);
+           const impact = impacts(input);
+           const estimates = {
+               input,
+               estimate:{
+                impact :{
+                    currentlyInfected: impact.currentlyInfected,
+                    infectionsByRequestedTime: impact.infectionsByRequestedTime,
+                    severeCasesByRequestedTime: impact.severeCasesByRequestedTime,
+                    hospitalBedsByRequestedTime: impact.hospitalBedsByRequestedTime,
+                    casesForICUByRequestedTime: impact.casesForICUByRequestedTime,
+                    casesForVentilatorsByRequestedTime: impact.casesForVentilatorsByRequestedTime,
+                    dollarsInFlight: impact.dollarsInFlight
+                },
+               severeImpact :{
+                    currentlyInfected: severeImpact.currentlyInfected,
+                    infectionsByRequestedTime: severeImpact.infectionsByRequestedTime,
+                    severeCasesByRequestedTime: severeImpact.severeCasesByRequestedTime,
+                    hospitalBedsByRequestedTime: severeImpact.hospitalBedsByRequestedTime,
+                    casesForICUByRequestedTime: severeImpact.casesForICUByRequestedTime,
+                    casesForVentilatorsByRequestedTime: severeImpact.casesForVentilatorsByRequestedTime,
+                    dollarsInFlight: severeImpact.dollarsInFlight
+               }
+            }
+           }
 
-        //    return estimates
-        // };
-        // console.log(covid19ImpactEstimator())
+           return estimates
+        };
+        console.log(covid19ImpactEstimator())
