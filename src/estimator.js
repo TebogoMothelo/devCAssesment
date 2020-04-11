@@ -1,9 +1,5 @@
-
 const impacts = (data) => {
-    //currentlyinfected
     const currentlyInfected = data.reportedCases * 10;
-
-    //infectionsByRequestedTime
     let duration = 0;
     if (data.periodType == "days") {
         duration = data.timeToElapse;
@@ -16,25 +12,20 @@ const impacts = (data) => {
     }
     let factor = Math.floor(duration / 3);
     infectionsByRequestedTime = Math.floor(currentlyInfected * Math.pow(2, factor))
-    //15% of infectionsByRequestedTime
+
     const percentage = 15 / 100;
     const severeCasesByRequestedTime = Math.floor(percentage * infectionsByRequestedTime);
 
-    //numberofhospital beds
+
     const occupied = 0.65 * data.totalHospitalBeds;
     const emptyBeds = data.totalHospitalBeds - occupied;
     const hospitalBedsByRequestedTime = Math.floor(emptyBeds - severeCasesByRequestedTime);
 
-    //casesforICU
     casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
 
-    //casesforventilators
     const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
 
-    //dollarsinflight
-
     const dollarsInFlight = Math.floor((infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / duration);
-
     const impact = {
         currentlyInfected: currentlyInfected,
         infectionsByRequestedTime: infectionsByRequestedTime,
@@ -48,10 +39,9 @@ const impacts = (data) => {
 }
 
 const severeImpacts = (data) => {
-    //currentlyInfected
+
     const currentlyInfected = data.reportedCases * 50;
 
-    //infectionsByRequestedTime
     let duration = 0;
     if (data.periodType == "days") {
         duration = data.timeToElapse;
@@ -66,21 +56,16 @@ const severeImpacts = (data) => {
     let factor = Math.floor(duration / 3);
     infectionsByRequestedTime = Math.floor(currentlyInfected * Math.pow(2, factor))
 
-    //15% of infectionsByRequestedTime
     const percentage = 15 / 100;
     const severeCasesByRequestedTime = Math.floor(percentage * infectionsByRequestedTime);
 
-    //numberofhospital beds
     const occupied = 0.65 * data.totalHospitalBeds;
     const emptyBeds = data.totalHospitalBeds - occupied;
     const hospitalBedsByRequestedTime = Math.floor(emptyBeds - severeCasesByRequestedTime);
 
-    //casesforICU
     casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
-    //casesforventilators
-    const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
 
-    //dollarsinflight
+    const casesForVentilatorsByRequestedTime = Math.floor(0.2 * infectionsByRequestedTime);
 
     const dollarsInFlight = Math.floor((infectionsByRequestedTime * data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD) / duration);
 
