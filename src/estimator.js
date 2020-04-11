@@ -33,10 +33,10 @@ const impacts = (data) => {
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime *
-      data.region.avgDailyIncomePopulation *
-      data.region.avgDailyIncomeInUSD) /
-      duration
+    (infectionsByRequestedTime
+      * data.region.avgDailyIncomePopulation
+      * data.region.avgDailyIncomeInUSD)
+      / duration
   );
   const impact = {
     currentlyInfected,
@@ -56,9 +56,11 @@ const severeImpacts = (data) => {
   let duration = 0;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodTyp === 'weeks') {
+  } 
+  if (data.periodTyp === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType === 'months') {
+  }
+  if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   }
 
