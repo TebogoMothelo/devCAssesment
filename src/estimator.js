@@ -9,24 +9,19 @@ const covid19ImpactEstimator = (data) => {
   if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   }
-  const estimates = {
-    data,
-    estimate: {
-      impact: {
-        currentlyInfected: data.reportedCases * 10,
-        infectionsByRequestedTime: Math.floor(
-          data.reportedCases * 10 * 2 ** Math.floor(duration / 3)
-        )
-      },
-      severeImpact: {
-        currentlyInfected: data.reportedCases * 50,
-        infectionsByRequestedTime: Math.floor(
-          data.reportedCases * 50 * 2 ** Math.floor(duration / 3)
-        )
-      }
+  return {
+    data: data,
+    impact: {
+      currentlyInfected: data.reportedCases * 10,
+      infectionsByRequestedTime:
+        data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10)
+    },
+    severeImpact: {
+      currentlyInfected: data.reportedCases * 50,
+      infectionsByRequestedTime:
+        data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10)
     }
   };
-  return estimates;
 };
 
 export default covid19ImpactEstimator;
