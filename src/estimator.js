@@ -21,10 +21,17 @@ const covid19ImpactEstimator = (data) => {
         data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15,
       hospitalBedsByRequestedTime: parseInt(
         emptyBeds
-          - data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15, 10
+          - data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.15,
+        10
       ),
-      casesForICUByRequestedTime: parseInt(data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.05, 10),
-      casesForVentilatorsByRequestedTime: parseInt(data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.02, 10),
+      casesForICUByRequestedTime: parseInt(
+        data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.05,
+        10
+      ),
+      casesForVentilatorsByRequestedTime: parseInt(
+        data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.02,
+        10
+      )
     },
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
@@ -34,10 +41,17 @@ const covid19ImpactEstimator = (data) => {
         data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15,
       hospitalBedsByRequestedTime: parseInt(
         emptyBeds
-          - data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15, 10
+          - data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.15,
+        10
       ),
-      casesForICUByRequestedTime: parseInt(data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.05, 10),
-      casesForVentilatorsByRequestedTime: parseInt(data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.02, 10),
+      casesForICUByRequestedTime: parseInt(
+        data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.05,
+        10
+      ),
+      casesForVentilatorsByRequestedTime: parseInt(
+        data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.02,
+        10
+      )
     }
   };
 };
