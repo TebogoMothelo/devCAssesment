@@ -29,18 +29,7 @@ return output;
 
 
 const covid19ImpactEstimator = (data) => {
-    const y = severeImpacts({region:{
-        name: "Africa",
-        avgAge: 19.7,
-        avgDailyIncomeInUSD: 5,
-        avgDailyIncomePopulation: 0.71     
-        },   
-        periodType: "days",
-        timeToElapse:30 ,
-        reportedCases: 674,
-        population: 66622705,
-        totalHospitalBeds: 1380614 })
-        return y;
+    
 };
 console.log(covid19ImpactEstimator())
 
