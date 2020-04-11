@@ -1,11 +1,11 @@
 const impacts = (data) => {
   const currentlyInfected = data.reportedCases * 10;
   let duration = 0;
-  if (data.periodType === "days") {
+  if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodType === "weeks") {
+  } else if (data.periodType === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType === "months") {
+  } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   }
   const factor = Math.floor(duration / 3);
@@ -52,11 +52,11 @@ const severeImpacts = (data) => {
   const currentlyInfected = data.reportedCases * 50;
 
   let duration = 0;
-  if (data.periodType === "days") {
+  if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodTyp === "weeks") {
+  } else if (data.periodTyp === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType === "months") {
+  } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   }
 
