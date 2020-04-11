@@ -114,22 +114,22 @@ const covid19ImpactEstimator = (data) => {
       impact: {
         currentlyInfected: impact.currentlyInfected,
         infectionsByRequestedTime: impact.infectionsByRequestedTime,
-        severeCasesByRequestedTime: impact.severeCasesByRequestedTime,
-        hospitalBedsByRequestedTime: impact.hospitalBedsByRequestedTime,
-        casesForICUByRequestedTime: impact.casesForICUByRequestedTime,
-        casesForVentilatorsByRequestedTime:
-          impact.casesForVentilatorsByRequestedTime,
-        dollarsInFlight: impact.dollarsInFlight
+        // severeCasesByRequestedTime: impact.severeCasesByRequestedTime,
+        // hospitalBedsByRequestedTime: impact.hospitalBedsByRequestedTime,
+        // casesForICUByRequestedTime: impact.casesForICUByRequestedTime,
+        // casesForVentilatorsByRequestedTime:
+        //   impact.casesForVentilatorsByRequestedTime,
+        // dollarsInFlight: impact.dollarsInFlight
       },
       severeImpact: {
         currentlyInfected: severeImpact.currentlyInfected,
         infectionsByRequestedTime: severeImpact.infectionsByRequestedTime,
-        severeCasesByRequestedTime: severeImpact.severeCasesByRequestedTime,
-        hospitalBedsByRequestedTime: severeImpact.hospitalBedsByRequestedTime,
-        casesForICUByRequestedTime: severeImpact.casesForICUByRequestedTime,
-        casesForVentilatorsByRequestedTime:
-          severeImpact.casesForVentilatorsByRequestedTime,
-        dollarsInFlight: severeImpact.dollarsInFlight
+        // severeCasesByRequestedTime: severeImpact.severeCasesByRequestedTime,
+        // hospitalBedsByRequestedTime: severeImpact.hospitalBedsByRequestedTime,
+        // casesForICUByRequestedTime: severeImpact.casesForICUByRequestedTime,
+        // casesForVentilatorsByRequestedTime:
+        //   severeImpact.casesForVentilatorsByRequestedTime,
+        // dollarsInFlight: severeImpact.dollarsInFlight
       }
     }
   };
