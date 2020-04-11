@@ -3,9 +3,11 @@ const impacts = (data) => {
   let duration = 0;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodType === 'weeks') {
+  }
+  if (data.periodType === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType === 'months') {
+  }
+  if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   }
   const factor = Math.floor(duration / 3);
@@ -31,10 +33,10 @@ const impacts = (data) => {
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime
-      * data.region.avgDailyIncomePopulation
-      * data.region.avgDailyIncomeInUSD)
-      / duration
+    (infectionsByRequestedTime *
+      data.region.avgDailyIncomePopulation *
+      data.region.avgDailyIncomeInUSD) /
+      duration
   );
   const impact = {
     currentlyInfected,
@@ -83,10 +85,10 @@ const severeImpacts = (data) => {
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime
-      * data.region.avgDailyIncomePopulation
-      * data.region.avgDailyIncomeInUSD)
-      / duration
+    (infectionsByRequestedTime *
+      data.region.avgDailyIncomePopulation *
+      data.region.avgDailyIncomeInUSD) /
+      duration
   );
 
   const severeImpact = {
