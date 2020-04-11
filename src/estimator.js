@@ -1,5 +1,7 @@
 const covid19ImpactEstimator = (data) => {
   let duration;
+  const occupied = 0.65 * data.totalHospitalBeds;
+  const emptyBeds = data.totalHospitalBeds - occupied;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
   }
@@ -14,12 +16,20 @@ const covid19ImpactEstimator = (data) => {
     impact: {
       currentlyInfected: data.reportedCases * 10,
       infectionsByRequestedTime:
-        data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10)
+        data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10),
+      severeCasesByRequestedTime: data.reportedCases * 10 * 0.15,
+      hospitalBedsByRequestedTime: parseInt(
+        emptyBeds - severeCasesByRequestedTime
+      )
     },
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
       infectionsByRequestedTime:
-        data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10)
+        data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10),
+      severeCasesByRequestedTime: data.reportedCases * 50 * 0.15,
+      hospitalBedsByRequestedTime: parseInt(
+        emptyBeds - severeCasesByRequestedTime
+      )
     }
   };
 };
