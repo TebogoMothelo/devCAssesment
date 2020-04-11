@@ -10,7 +10,7 @@ const covid19ImpactEstimator = (data) => {
     duration = data.timeToElapse * 30;
   }
   return {
-    data: data,
+    data,
     impact: {
       currentlyInfected: data.reportedCases * 10,
       infectionsByRequestedTime:
