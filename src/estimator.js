@@ -53,7 +53,7 @@ const impacts = (data) => {
 const severeImpacts = (data) => {
   const currentlyInfected = data.reportedCases * 50;
 
-  let duration = 0;
+  let duration;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
   }
