@@ -1,6 +1,6 @@
 const impacts = (data) => {
   const currentlyInfected = data.reportedCases * 10;
-  let duration = 0;
+  let duration;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
   }
