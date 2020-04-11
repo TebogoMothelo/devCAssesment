@@ -1,18 +1,18 @@
 const impacts = (data) => {
   const currentlyInfected = data.reportedCases * 10;
   let duration = 0;
-  if (data.periodType == 'days') {
+  if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodType == 'weeks') {
+  } else if (data.periodType === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType == 'months') {
+  } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   } else {
     duration = data.timeToElapse * 365;
   }
-  let factor = Math.floor(duration / 3);
-  infectionsByRequestedTime = Math.floor(
-    currentlyInfected * Math.pow(2, factor)
+  const factor = Math.floor(duration / 3);
+  constinfectionsByRequestedTime = Math.floor(
+    currentlyInfected * (2 ** factor)
   );
 
   const percentage = 15 / 100;
@@ -26,7 +26,7 @@ const impacts = (data) => {
     emptyBeds - severeCasesByRequestedTime
   );
 
-  casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
+  const casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     0.2 * infectionsByRequestedTime
@@ -54,19 +54,19 @@ const severeImpacts = (data) => {
   const currentlyInfected = data.reportedCases * 50;
 
   let duration = 0;
-  if (data.periodType == 'days') {
+  if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } else if (data.periodType == 'weeks') {
+  } else if (data.periodTyp === 'weeks') {
     duration = data.timeToElapse * 7;
-  } else if (data.periodType == 'months') {
+  } else if (data.periodType === 'months') {
     duration = data.timeToElapse * 30;
   } else {
     duration = data.timeToElapse * 365;
   }
 
-  let factor = Math.floor(duration / 3);
-  infectionsByRequestedTime = Math.floor(
-    currentlyInfected * Math.pow(2, factor)
+  const factor = Math.floor(duration / 3);
+  const infectionsByRequestedTime = Math.floor(
+    currentlyInfected * (2 ** factor)
   );
 
   const percentage = 15 / 100;
@@ -80,7 +80,7 @@ const severeImpacts = (data) => {
     emptyBeds - severeCasesByRequestedTime
   );
 
-  casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
+  const casesForICUByRequestedTime = Math.floor(0.5 * infectionsByRequestedTime);
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     0.2 * infectionsByRequestedTime
@@ -106,10 +106,10 @@ const severeImpacts = (data) => {
 };
 
 const covid19ImpactEstimator = () => {
-  const severeImpact = severeImpacts(input);
-  const impact = impacts(input);
+  const severeImpact = severeImpacts(data);
+  const impact = impacts(data);
   const estimates = {
-    input,
+    data,
     estimate: {
       impact: {
         currentlyInfected: impact.currentlyInfected,
