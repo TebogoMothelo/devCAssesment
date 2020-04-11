@@ -11,7 +11,7 @@ const impacts = (data) => {
     duration = data.timeToElapse * 365;
   }
   const factor = Math.floor(duration / 3);
-  constinfectionsByRequestedTime = Math.floor(
+  const infectionsByRequestedTime = Math.floor(
     currentlyInfected * (2 ** factor)
   );
 
@@ -105,7 +105,7 @@ const severeImpacts = (data) => {
   return severeImpact;
 };
 
-const covid19ImpactEstimator = () => {
+const covid19ImpactEstimator = (data) => {
   const severeImpact = severeImpacts(data);
   const impact = impacts(data);
   const estimates = {
