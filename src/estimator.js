@@ -56,7 +56,7 @@ const severeImpacts = (data) => {
   let duration = 0;
   if (data.periodType === 'days') {
     duration = data.timeToElapse;
-  } 
+  }
   if (data.periodTyp === 'weeks') {
     duration = data.timeToElapse * 7;
   }
@@ -87,10 +87,10 @@ const severeImpacts = (data) => {
   );
 
   const dollarsInFlight = Math.floor(
-    (infectionsByRequestedTime *
-      data.region.avgDailyIncomePopulation *
-      data.region.avgDailyIncomeInUSD) /
-      duration
+    (infectionsByRequestedTime
+      * data.region.avgDailyIncomePopulation
+      * data.region.avgDailyIncomeInUSD)
+      / duration
   );
 
   const severeImpact = {
