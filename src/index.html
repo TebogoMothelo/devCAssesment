@@ -19,25 +19,25 @@
     <h1>Covid-19 Estimator</h1>
     <form>
       <label for="population">Population:</label><br />
-      <input id="population" type="number" name="population" /><br />
+      <input id="population" type="number" name="data-population" /><br />
 
       <label for="timetoelapse">Time to Elapse:</label><br />
-      <input id="time" type="number" name="timetoelapse" /><br />
+      <input id="time" type="number" name="data-time-to-elapse" /><br />
 
       <label for="reportedcases">Reported Cases:</label><br />
-      <input id="reported" type="number" name="reportedcases" /><br />
+      <input id="reported" type="number" name="data-reported-cases" /><br />
 
       <label for="totalhospitals">Total Hospitals:</label><br />
-      <input id="hospitals" type="number" name="totalhospitals" /><br />
+      <input id="hospitals" type="number" name="data-total-hospital-beds" /><br />
 
       <label for="periodtype">Period Type:</label>
-      <select id="period" name="periodtype">
+      <select id="period" name="data-period-type">
         <option value="days">Days</option>
         <option value="weeks">Weeks</option>
         <option value="months">Months</option>
       </select><br>
 
-      <button onclick="calculatesImpact()">Submit</button>
+      <button onclick="covid19ImpactEstimator()" name="data-go-estimate">Submit</button>
       <p id="test"></p>
     </form>
   </body>

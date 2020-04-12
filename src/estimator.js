@@ -32,26 +32,23 @@ const calculatesImpact = (impact) => {
     }
   };
 };
-calculatesImpact();
+const covid19ImpactEstimator = () => {
+  const impacts = calculatesImpact(10);
+  const severeImpacts = calculatesImpact(50);
+  return {
+    impact: {
+      currentlyInfected: impacts[0],
+      infectionsByRequestedTime: impacts[1],
+      severeCasesByRequestedTime: impacts[2],
+      hospitalBedsByRequestedTime: impacts[3]
+    },
+    severeImpact: {
+      currentlyInfected: severeImpacts[0],
+      infectionsByRequestedTime: severeImpacts[1],
+      severeCasesByRequestedTime: severeImpacts[2],
+      hospitalBedsByRequestedTime: severeImpacts[3]
+    }
+  };
+};
 
-// const covid19ImpactEstimator = () => {
-// const impacts = calculatesImpact(10);
-// const severeImpacts = calculatesImpact(50)
-// return {
-//     impact:{
-//         currentlyInfected: impacts[0],
-//         infectionsByRequestedTime: impacts[1],
-//         severeCasesByRequestedTime: impacts[2],
-//         hospitalBedsByRequestedTime: impacts[3]
-//     },
-//     severeImpact:{
-//         currentlyInfected: severeImpacts[0],
-//         infectionsByRequestedTime: severeImpacts[1],
-//         severeCasesByRequestedTime: severeImpacts[2],
-//         hospitalBedsByRequestedTime: severeImpacts[3]
-//     }
-// }
-
-// }
-
-// export default covid19ImpactEstimator
+export default covid19ImpactEstimator;
