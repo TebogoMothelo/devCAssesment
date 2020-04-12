@@ -36,8 +36,8 @@ const covid19ImpactEstimator = (data) => {
         (data.reportedCases
           * 10
           * 2 ** parseInt(duration / 3, 10)
-          * data.avgDailyIncomePopulation
-          * data.avgDailyIncomeInUSD)
+          * data.region.avgDailyIncomePopulation
+          * data.region.avgDailyIncomeInUSD)
           / duration, 10
       )
     },
@@ -64,12 +64,11 @@ const covid19ImpactEstimator = (data) => {
         (data.reportedCases
           * 50
           * 2 ** parseInt(duration / 3, 10)
-          * data.avgDailyIncomePopulation
-          * data.avgDailyIncomeInUSD)
+          * data.region.avgDailyIncomePopulation
+          * data.region.avgDailyIncomeInUSD)
           / duration, 10
       )
     }
   };
 };
-
 export default covid19ImpactEstimator;
