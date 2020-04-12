@@ -31,6 +31,14 @@ const covid19ImpactEstimator = (data) => {
       casesForVentilatorsByRequestedTime: parseInt(
         data.reportedCases * 10 * 2 ** parseInt(duration / 3, 10) * 0.02,
         10
+      ),
+      dollarsInFlight: parseInt(
+        (data.reportedCases
+          * 10
+          * 2 ** parseInt(duration / 3, 10)
+          * data.avgDailyIncomePopulation
+          * data.avgDailyIncomeInUSD)
+          / duration
       )
     },
     severeImpact: {
@@ -51,6 +59,14 @@ const covid19ImpactEstimator = (data) => {
       casesForVentilatorsByRequestedTime: parseInt(
         data.reportedCases * 50 * 2 ** parseInt(duration / 3, 10) * 0.02,
         10
+      ),
+      dollarsInFlight: parseInt(
+        (data.reportedCases
+          * 50
+          * 2 ** parseInt(duration / 3, 10)
+          * data.avgDailyIncomePopulation *
+          data.avgDailyIncomeInUSD)
+          / duration
       )
     }
   };
