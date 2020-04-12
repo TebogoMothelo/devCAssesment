@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body,html{
+        background-color: rgb(104, 102, 102);
+    }
+    label, h1{
+        color: rgb(81, 255, 0);
+    }
+</style>
 <body>
     <h1>Covid-19 Estimator</h1>
     <form>
         <label for="population">Population:</label><br>
-        <input type="number" name="population"><br>
-        <label for="timeToElapse">Time to Elapse:</label><br>
-        <input type="number" name="timeToElapse"><br>
-        <label for="population">Population:</label><br>
-        <input type="number" name="population"><br>
-        <label for="population">Population:</label><br>
-        <input type="number" name="population"><br>
-        <label for="population">Population:</label><br>
-        <input type="number" name="population"><br>
+        <input id="population" type="number" name="population"><br>
+
+        <label for="timetoelapse">Time to Elapse:</label><br>
+        <input id="time" type="number" name="timetoelapse"><br>
+
+        <label for="reportedcases">Reported Cases:</label><br>
+        <input id="reported" type="number" name="reportedcases"><br>
+
+        <label for="totalhospitals">Total Hospitals:</label><br>
+        <input id="hospitals" type="number" name="totalhospitals"><br>
+
+        <label for="periodtype">Period Type:</label><br>
+        <input id="period" type="number" name="periodtype"><br>
       </form> 
       
 </body>
