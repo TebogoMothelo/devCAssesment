@@ -38,7 +38,7 @@ const covid19ImpactEstimator = (data) => {
           * 2 ** parseInt(duration / 3, 10)
           * data.avgDailyIncomePopulation
           * data.avgDailyIncomeInUSD)
-          / duration
+          / duration, 10
       )
     },
     severeImpact: {
@@ -64,9 +64,9 @@ const covid19ImpactEstimator = (data) => {
         (data.reportedCases
           * 50
           * 2 ** parseInt(duration / 3, 10)
-          * data.avgDailyIncomePopulation *
-          data.avgDailyIncomeInUSD)
-          / duration
+          * data.avgDailyIncomePopulation
+          * data.avgDailyIncomeInUSD)
+          / duration, 10
       )
     }
   };
