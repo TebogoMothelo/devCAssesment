@@ -1,5 +1,3 @@
-const covid19ImpactEstimator = (data) => data;
-
 const covid19ImpactEstimator = (data) => {
   let duration;
   const occupied = 0.65 * data.totalHospitalBeds;
